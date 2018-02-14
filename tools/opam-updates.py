@@ -32,7 +32,7 @@ class Package:
         path = "packages/{name}/{name}.{version}".format(
             name=self.name,
             version=self.new if self.new is not None else self.cur)
-        return "https://api.github.com/repos/ocaml/opam-repository/contents/{}".format(path)
+        return "https://api.github.com/repos/ocaml/opam-repository/contents/{}?ref=2.0.0".format(path)
 
     @property
     def current_name(self):

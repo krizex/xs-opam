@@ -5,10 +5,10 @@ services:
 script:
   - bash ./tools/build-docker.sh
 after_success:
-  - if [ "$TRAVIS_PULL_REQUEST" = "false" -a "$TRAVIS_BRANCH" = "master" -a -n "$DOCKER_HUB_TAG" ]; then
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" -a "$TRAVIS_BRANCH" = "opam2" -a -n "$DOCKER_HUB_TAG" ]; then
       docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-      docker tag local-build xenserver/xs-opam:$DOCKER_HUB_TAG;
-      docker push xenserver/xs-opam:$DOCKER_HUB_TAG;
+      docker tag local-build xenserver/xs-opam2:$DOCKER_HUB_TAG;
+      docker push xenserver/xs-opam2:$DOCKER_HUB_TAG;
     fi
 env:
   global:
