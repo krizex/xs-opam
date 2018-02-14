@@ -1,17 +1,25 @@
-opam-version: "1.2"
+opam-version: "2.0"
 maintainer: "xen-api@lists.xen.org"
 authors: [ "Mike McClurg" ]
 license: "ISC"
 homepage: "https://github.com/xapi-project/ocaml-opasswd"
-dev-repo: "https://github.com/xapi-project/ocaml-opasswd.git"
+dev-repo: "git+https://github.com/xapi-project/ocaml-opasswd.git"
 bug-reports: "https://github.com/xapi-project/ocaml-opasswd/issues"
-build: [["jbuilder" "build" "-p" name "-j" jobs]]
-build-test: [["jbuilder" "runtest" "-p" name "-j" jobs]]
+build: [
+  ["jbuilder" "build" "-p" name "-j" jobs]
+  ["jbuilder" "runtest" "-p" name "-j" jobs] {with-test}
+]
 depends: [
+  "ocaml" {>= "4.01.0" & <= "4.05.0"}
   "jbuilder" {build}
   "ctypes" {>= "0.2.2"}
   "ctypes-foreign"
 ]
 tags: [ "org:xapi-project" ]
-available: [ ocaml-version >= "4.01.0" & ocaml-version <= "4.05.0" ]
-
+synopsis:
+  "OCaml bindings to the glibc passwd file and shadow password file interface."
+url {
+  src:
+    "https://github.com/xapi-project/ocaml-opasswd/archive/v1.1.0/ocaml-opasswd-1.1.0.tar.gz"
+  checksum: "md5=5a5c527f080a1cb83944aa0237065fcb"
+}

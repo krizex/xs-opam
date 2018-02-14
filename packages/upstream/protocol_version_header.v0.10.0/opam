@@ -1,4 +1,4 @@
-opam-version: "1.2"
+opam-version: "2.0"
 version: "v0.10.0"
 maintainer: "opensource@janestreet.com"
 authors: ["Jane Street Group, LLC <opensource@janestreet.com>"]
@@ -10,18 +10,21 @@ build: [
   ["jbuilder" "build" "-p" name "-j" jobs]
 ]
 depends: [
-  "core_kernel"             {>= "v0.10" & < "v0.11"}
-  "ppx_driver"              {>= "v0.10" & < "v0.11"}
-  "ppx_jane"                {>= "v0.10" & < "v0.11"}
-  "jbuilder"                {build & >= "1.0+beta12"}
+  "ocaml" {>= "4.04.1"}
+  "core_kernel" {>= "v0.10" & < "v0.11"}
+  "ppx_driver" {>= "v0.10" & < "v0.11"}
+  "ppx_jane" {>= "v0.10" & < "v0.11"}
+  "jbuilder" {build & >= "1.0+beta12"}
   "ocaml-migrate-parsetree" {>= "0.4"}
 ]
-available: [ ocaml-version >= "4.04.1" ]
-descr: "
-Protocol versioning
-
+synopsis: "Protocol versioning"
+description: """
 This library offers a lightweight way for applications protocols to
 version themselves. The more protocols that add themselves to
 [Known_protocol], the nicer error messages we will get when connecting
-to a service while using the wrong protocol.
-"
+to a service while using the wrong protocol."""
+url {
+  src:
+    "https://github.com/janestreet/protocol_version_header/archive/v0.10.0.tar.gz"
+  checksum: "md5=a90d53e5293e536f64fa15787d54736a"
+}

@@ -1,4 +1,4 @@
-opam-version: "1.2"
+opam-version: "2.0"
 version: "v0.10.0"
 maintainer: "opensource@janestreet.com"
 authors: ["Jane Street Group, LLC <opensource@janestreet.com>"]
@@ -10,16 +10,15 @@ build: [
   ["jbuilder" "build" "-p" name "-j" jobs]
 ]
 depends: [
+  "ocaml" {>= "4.04.1"}
   "jbuilder" {build & >= "1.0+beta12"}
-  "sexplib"  {>= "v0.10" & < "v0.11"}
+  "sexplib" {>= "v0.10" & < "v0.11"}
 ]
 depopts: [
   "base-native-int63"
 ]
-available: [ ocaml-version >= "4.04.1" ]
-descr: "
-Full standard library replacement for OCaml
-
+synopsis: "Full standard library replacement for OCaml"
+description: """
 Full standard library replacement for OCaml
 
 Base is a complete and portable alternative to the OCaml standard
@@ -31,5 +30,8 @@ Base aims to be usable in any context. As a result system dependent
 features such as I/O are not offered by Base. They are instead
 provided by companion libraries such as stdio:
 
-  https://github.com/janestreet/stdio
-"
+  https://github.com/janestreet/stdio"""
+url {
+  src: "https://github.com/janestreet/base/archive/v0.10.0.tar.gz"
+  checksum: "md5=5ee05b7685f36b0e63013e6becf1be9e"
+}

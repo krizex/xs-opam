@@ -1,13 +1,16 @@
-opam-version: "1.2"
+opam-version: "2.0"
 authors: "Dave Scott"
 homepage: "https://github.com/xapi-project/xcp-idl"
 bug-reports: "https://github.com/xapi-project/xcp-idl/issues"
 dev-repo: "git://github.com/xapi-project/xcp-idl"
 maintainer: "xen-api@lists.xen.org"
 tags: [ "org:xapi-project" ]
-build: [[ "jbuilder" "build" "-p" name "-j" jobs ]]
-build-test: ["jbuilder" "runtest" "-p" name]
+build: [
+  ["jbuilder" "build" "-p" name "-j" jobs]
+  ["jbuilder" "runtest" "-p" name] {with-test}
+]
 depends: [
+  "ocaml"
   "base-threads"
   "base-unix"
   "cmdliner"
@@ -33,3 +36,14 @@ depends: [
   "xapi-stdext-threads"
   "xmlm"
 ]
+synopsis: "Interface descriptions and common boilerplate for xapi services."
+description: """
+The xapi toolstack is a set of communicating services including
+  - xenopsd: low-level Xen domain management
+  - networkd: host network configuration
+  - squeezed: balances memory between domains
+  - rrdd: manages datasources and records history
+plus storage 'plugins'"""
+url {
+  src: "https://github.com/xapi-project/xcp-idl/archive/master.tar.gz"
+}

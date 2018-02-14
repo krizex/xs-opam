@@ -1,4 +1,4 @@
-opam-version: "1.2"
+opam-version: "2.0"
 maintainer: "jonathan.ludlam@citrix.com"
 authors: "xen-api@list.xen.org"
 bug-reports: "https://github.com/xapi-project/stdext/issues"
@@ -14,6 +14,7 @@ patches: [
 ]
 
 depends: [
+  "ocaml"
   "jbuilder" {build}
   "xapi-stdext-base64"
   "xapi-stdext-bigbuffer"
@@ -28,3 +29,18 @@ depends: [
   "xapi-stdext-unix"
   "xapi-stdext-zerocheck"
 ]
+synopsis: "A deprecated collection of utility functions"
+description: """
+Backward compatibility wrapper, this is introduced along with
+xapi-stdext-3.0.0 and will be removed once the oasis files of the
+necessary packages have been updated.
+
+This library is provided for a transitionary period only.
+No new code should use this library."""
+extra-files: [
+  ["rename-main-lib.patch" "md5=972eacaa81d9f0b31a506878b4602086"]
+  ["re-expose-hashtblext.patch" "md5=b2d5210226de270f5d0b593ac7ecb655"]
+]
+url {
+  src: "https://github.com/xapi-project/stdext/archive/v3.0.0.tar.gz"
+}

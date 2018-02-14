@@ -1,4 +1,4 @@
-opam-version: "1.2"
+opam-version: "2.0"
 maintainer: "thomas@gazagnaire.org"
 authors: "Thomas Gazagnaire, Jon Ludlam"
 homepage: "https://github.com/mirage/ocaml-rpc"
@@ -10,6 +10,8 @@ tags: [
 ]
 build: [
   [make]
+  [make] {with-test}
+  [make "test"] {with-test}
 ]
 install: [
   [make "install"]
@@ -18,13 +20,10 @@ remove: [
   ["ocamlfind" "remove" "rpclib"]
   ["ocamlfind" "remove" "ppx_deriving_rpc"]
 ]
-build-test: [
-    [make]
-    [make "test"]
-]
 depends: [
+  "ocaml" {>= "4.03.0"}
   "oasis" {build}
-  "cppo"  {build}
+  "cppo" {build}
   "async" {>= "v0.9.0" & < "v0.11.0"}
   "cmdliner"
   "cow"
@@ -38,4 +37,14 @@ depends: [
   "camlp4"
 ]
 depopts: [ "js_of_ocaml" ]
-available: [ ocaml-version >= "4.03.0" ]
+synopsis: "A library to deal with RPCs in OCaml"
+description: """
+This library provides a PPX and a camlp4 syntax extension to generate functions
+to convert values of a given type to and from their RPC representations. In
+order to do so, it is sufficient to add `[@@deriving rpc]` (or `with rpc` in
+case of camlp4) to the corresponding type definition."""
+flags: light-uninstall
+url {
+  src: "https://github.com/mirage/ocaml-rpc/archive/v3.1.0.tar.gz"
+  checksum: "md5=66d128a1ea020796af94772e210dcd96"
+}

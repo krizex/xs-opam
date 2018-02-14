@@ -1,10 +1,9 @@
-opam-version: "1.2"
-name: "xen-api-client"
+opam-version: "2.0"
 maintainer: "xen-api@lists.xen.org"
 authors: [ "David Scott" "Anil Madhavapeddy" "Jerome Maloberti" "John Else" "Jon Ludlam" "Thomas Sanders" "Mike McClurg" ]
 license: "LGPL"
 homepage: "https://github.com/xapi-project/xen-api-client"
-dev-repo: "https://github.com/xapi-project/xen-api-client.git"
+dev-repo: "git+https://github.com/xapi-project/xen-api-client.git"
 bug-reports: "https://github.com/xapi-project/xen-api-client/issues"
 
 tags: [
@@ -15,6 +14,7 @@ tags: [
 build: [[ "jbuilder" "build" "-p" name ]]
 
 depends: [
+  "ocaml"
   "jbuilder" {build & >= "1.0+beta11"}
   "cohttp" {>= "0.12.0"}
   "cstruct" {>= "1.0.1"}
@@ -28,4 +28,9 @@ depends: [
   "xen-api-client"
   "xmlm"
 ]
-
+synopsis:
+  "Xen-API client library for remotely-controlling an XCP or XenServer host."
+url {
+  src:
+    "https://github.com/xapi-project/xen-api-client/archive/master/master.tar.gz"
+}

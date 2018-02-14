@@ -1,15 +1,16 @@
-opam-version: "1.2"
+opam-version: "2.0"
 name: "xapi-xenopsd-xenlight"
 maintainer: "xen-api@lists.xen.org"
 authors: "xen-api@lists.xen.org"
 homepage: "https://github.com/xapi-project/xenopsd"
-dev-repo: "https://github.com/xapi-project/xenopsd.git"
+dev-repo: "git+https://github.com/xapi-project/xenopsd.git"
 bug-reports: "https://github.com/xapi-project/xenopsd/issues"
 build: [
   ["./configure"]
   [ "jbuilder" "build" "-p" name "-j" jobs ]
 ]
 depends: [
+  "ocaml"
   "jbuilder" {build}
   "xapi-xenopsd"
   "cohttp"
@@ -32,3 +33,8 @@ depends: [
   "xenstore_transport"
   "xmlm"
 ]
+synopsis:
+  "A xenops plugin which knows how to use xenlight to manage VMs on a Xen host."
+url {
+  src: "https://github.com/xapi-project/xenopsd/archive/master/master.tar.gz"
+}
